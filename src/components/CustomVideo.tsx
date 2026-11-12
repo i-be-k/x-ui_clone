@@ -1,0 +1,26 @@
+"use client";
+
+import { Video } from '@imagekit/next';
+
+const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
+
+type VideoTypes = {
+    path: string;
+    className?: string;
+};
+
+const CustomVideo = ({ path, className }: VideoTypes) => {
+    return (
+        <Video
+            urlEndpoint={urlEndpoint}
+            src={path}
+            className={className}
+            transformation={[
+                { width: "1920", height: "1080", q: "90" }
+            ]}
+            controls
+        />
+    );
+};
+
+export default CustomVideo;
