@@ -66,12 +66,12 @@ const menuList = [
 
 const LeftBar = () => {
     return (
-        <div className="h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8">
+        <div className="h-screen sticky top-0 flex flex-col justify-between pt-2 pb-8 overflow-y-auto overflow-x-hidden">
             {/* LOGO MENU BUTTON */}
-            <div className="flex flex-col gap-4 text-lg items-center xxl:items-start">
+            <div className="flex flex-col gap-4 text-lg items-center xxl:items-start pb-6">
                 {/* LOGO */}
                 <Link href="/" className="p-2 rounded-full hover:bg-[#181818]">
-                    <CustomImage src="public/icons/logo.svg" alt="logo" w={24} h={24} />
+                    <CustomImage path="public/icons/logo.svg" alt="logo" w={24} h={24} />
                 </Link>
                 {/* MENU LIST */}
                 <div className="flex flex-col gap-4">
@@ -82,7 +82,7 @@ const LeftBar = () => {
                             key={item.id}
                         >
                             <CustomImage
-                                src={`public/icons/${item.icon}`}
+                                path={`public/icons/${item.icon}`}
                                 alt={item.name}
                                 w={24}
                                 h={24}
@@ -96,21 +96,21 @@ const LeftBar = () => {
                     href="/"
                     className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
                 >
-                    <CustomImage src="public/icons/post.svg" alt="new post" w={24} h={24} />
+                    <CustomImage path="public/icons/post.svg" alt="new post" w={24} h={24} />
                 </Link>
                 <Link href="/" className="hidden xxl:block bg-white text-black rounded-full font-bold py-2 px-20">
                     Post
                 </Link>
             </div>
             {/* USER */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between shrink-0">
                 <div className="flex items-center gap-2">
                     <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                        <CustomImage src="public/general/avatar.png" alt="lope dev" w={100} h={100} tr={true} />
+                        <CustomImage path="public/general/avatar.png" alt="lope dev" w={100} h={100} tr={true} />
                     </div>
                     <div className="hidden xxl:flex flex-col">
                         <span className="font-bold">Lope Dev</span>
-                        <span className="text-sm text-textGray">@lopeWebDev</span>
+                        <span className="text-sm text-textGray">@lopeAppDev</span>
                     </div>
                     <div className="">...</div>
                 </div>
