@@ -4,8 +4,8 @@ import { Image } from '@imagekit/next';
 
 type ImageType = {
     path: string;
-    w?: number;
-    h?: number;
+    width?: number;
+    height?: number;
     alt: string;
     className?: string;
     tr?: boolean;
@@ -13,19 +13,20 @@ type ImageType = {
 
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
-const CustomImage = ({ path, w, h, alt, className, tr }: ImageType) => {
+const CustomImage = ({ path, width, height, alt, className, tr }: ImageType) => {
     return (
         <Image
             urlEndpoint={urlEndpoint}
             src={path}
-            width={w}
-            height={h}
+            width={width}
+            height={height}
             {...(tr
-                ? { transformation: [{ width: `${w}`, height: `${h}` }] }
-                : { width: w, height: h }
+                ? { transformation: [{ width: `${width}`, height: `${height}` }] }
+                : {}
             )}
             alt={alt}
             className={className}
+            priority
         />
     );
 };
